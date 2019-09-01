@@ -11,28 +11,29 @@ namespace Multiply
 
             while (next)
             {
-                WriteLine("Digite um número:");
+                WriteLine("Fisrt number:");
                 var value1 = ToInt32(ReadLine());
-                WriteLine("Digite um segundo número:");
+                WriteLine("Second number:");
                 var value2 = ToInt32(ReadLine());
 
                 int total;
 
                 if (value1 > 0 && value2 > 0)
                     total = Multiply(value1, value2);
-
                 else if (value1 < 0 && value2 < 0)
                     total = Multiply(ConvertValueForIntPositive(value1), ConvertValueForIntPositive(value2));
                 else
                     total = ConvertValueForIntNegative(Multiply(ConvertValueForIntPositive(value1), ConvertValueForIntPositive(value2)));
 
-                WriteLine($"resultado da multiplicação: {total}");
+                WriteLine($"Result of multiply: {total}");
                 WriteLine();
-                WriteLine("Deseja continuar? (S/N)");
+                WriteLine("Continue? (S/N)");
+
                 var desejaContinuar = ReadLine();
 
                 if (desejaContinuar?.ToUpper() == "N")
                     next = false;
+
                 Clear();
             }
 
@@ -51,7 +52,6 @@ namespace Multiply
         {
             if (value > 0)
                 return value;
-
             return (0 - (value));
         }
 
@@ -59,7 +59,6 @@ namespace Multiply
         {
             if (value < 0)
                 return value;
-
             return (0 + (-value));
         }
     }
